@@ -26,17 +26,13 @@
     "!**/.*"
   ],
   "scripts": {
-    "test": "jest --config=jest.config.js --watchAll=false",
-    "test-watch": "jest --config=jest.config.js --watchAll",
+    "example": "yarn workspace react-native-access-paper-components-example",
+    "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "husky install && bob build",
-    "release": "release-it --ci --github.autoGenerate",
-    "example": "yarn --cwd example",
-    "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods",
-    "prepack": "bob build",
-    "build-example": "cd example && npx expo export:web"
+    "clean": "del-cli lib",
+    "prepare": "bob build",
+    "release": "release-it"
   },
   "keywords": [
     "react-native",
@@ -57,36 +53,30 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.7.0",
-    "@react-native-community/eslint-config": "^3.2.0",
-    "@release-it/conventional-changelog": "^5.1.1",
-    "@testing-library/jest-native": "^5.4.3",
-    "@testing-library/react-native": "^11.5.4",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@evilmartians/lefthook": "^1.5.0",
+    "@react-native/eslint-config": "^0.72.2",
+    "@release-it/conventional-changelog": "^5.0.0",
+    "@types/jest": "^28.1.2",
     "@types/color": "^3.0.4",
-    "@types/jest": "^29.5.5",
-    "@types/react": "^18.2.21",
-    "@types/react-native-vector-icons": "^6.4.14",
-    "@types/react-test-renderer": "^18.0.1",
-    "babel-loader": "^8.3.0",
-    "caniuse-lite": "^1.0.30001534",
-    "commitlint": "^17.7.1",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.3",
-    "jest": "^29.7.0",
-    "metro-react-native-babel-preset": "^0.76.8",
-    "pod-install": "^0.1.39",
-    "prettier": "^2.8.8",
-    "react": "^18.2.0",
-    "react-native": "^0.72.4",
-    "react-native-builder-bob": "^0.20.4",
-    "react-native-paper": "^5.10.4",
-    "react-native-safe-area-context": "^4.7.2",
-    "react-native-vector-icons": "^9.2.0",
-    "react-test-renderer": "^18.2.0",
-    "release-it": "^15.10.5",
-    "typescript": "^4.9.5"
+    "@types/react": "~17.0.21",
+    "@types/react-native": "0.70.0",
+    "commitlint": "^17.0.2",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.1.1",
+    "prettier": "^2.0.5",
+    "react": "18.2.0",
+    "react-native": "0.72.6",
+    "react-native-builder-bob": "^0.20.0",
+    "release-it": "^15.0.0",
+    "typescript": "^5.0.2",
+    "react-native-gesture-handler": "^2.14.0",
+    "react-native-mask-input": "^1.2.3",
+    "react-native-paper": "^5.11.4",
+    "react-native-safe-area-context": "^4.8.0"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -97,14 +87,21 @@
     "react-native-gesture-handler": "*",
     "react-native-mask-input": "*",
     "react-native-paper": "*",
-    "react-native-safe-area-context": "*",
-    "react-native-vector-icons": "*"
+    "react-native-safe-area-context": "*"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn typecheck"
-    }
+  "workspaces": [
+    "example"
+  ],
+  "packageManager": "yarn@3.6.1",
+  "engines": {
+    "node": ">= 18.0.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
   },
   "commitlint": {
     "extends": [
@@ -131,7 +128,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@react-native-community",
+      "@react-native",
       "prettier"
     ],
     "rules": {
@@ -142,27 +139,21 @@
           "singleQuote": true,
           "tabWidth": 2,
           "trailingComma": "es5",
-          "useTabs": false,
-          "semi": false
+          "useTabs": false
         }
       ]
     }
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/",
-    "example/node_modules",
-    "example/web-build",
-    "docusaurus",
-    "coverage"
+    "lib/"
   ],
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": false,
-    "semi": false
+    "useTabs": false
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -179,6 +170,12 @@
     ]
   },
   "dependencies": {
-    "color": "^3.2.1"
+    "@callstack/react-theme-provider": "^3.0.9",
+    "color": "^3.1.2",
+    "use-latest-callback": "^0.1.5"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
   }
 }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
+    "baseUrl": "./",
     "paths": {
       "react-native-access-paper-components": ["./src/index"]
     },
@@ -9,20 +9,18 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noStrictGenericChecks": false,
-    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "verbatimModuleSyntax": true
   }
 }
