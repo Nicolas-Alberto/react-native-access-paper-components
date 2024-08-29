@@ -3,7 +3,7 @@ import React from "react";
 import { Dimensions, FlatList, TouchableOpacity, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Button, Dialog, Portal, TextInput, RadioButton, Divider } from "react-native-paper";
-import MaterialIcons from '@react-native-vector-icons/material-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 export type DropDownListPropsType = Omit<React.ComponentProps<typeof TextInput>, "value"> & {
     /** Valor atual/selecionado, deve ser passado a propriedade do mesmo tipo informado no optionId.*/
