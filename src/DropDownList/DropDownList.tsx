@@ -101,7 +101,7 @@ export function DropDonwList({
                                         />
                                     }
                                     {
-                                        options.length < 5 &&
+                                        options.length <= 5 &&
                                         options.filter(option => option[optionNome].toLowerCase().includes(textoBusca.toLowerCase()) || textoBusca === "").map((option: any, key: any) =>
                                             <RadioButton.Item key={key} value={option[optionId]} label={option[optionNome]} />
                                         )
