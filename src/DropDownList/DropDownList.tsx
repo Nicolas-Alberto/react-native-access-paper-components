@@ -3,6 +3,7 @@ import React from "react";
 import { Dimensions, FlatList, TouchableOpacity, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Button, Dialog, Portal, TextInput, RadioButton, Divider } from "react-native-paper";
+import MaterialIcons from '@react-native-vector-icons/material-icons';
 
 export type DropDownListPropsType = Omit<React.ComponentProps<typeof TextInput>, "value"> & {
     /** Valor atual/selecionado, deve ser passado a propriedade do mesmo tipo informado no optionId.*/
@@ -62,7 +63,8 @@ export function DropDonwList({
 
                 <Dialog visible={visible} onDismiss={() => fecharDropDown()} style={{ maxHeight: Dimensions.get('window').height * 0.8 }}>
                     <GestureHandlerRootView >
-                        <Button style={{ margin: 0, padding: 0, alignItems: "flex-end" }} onPress={() => fecharDropDown()}>Fechar</Button>
+                        <Button style={{ margin: 0, padding: 0, alignItems: "flex-end" }} onPress={() => fecharDropDown()}
+                        icon={() => <MaterialIcons name="close" color="black" size={24} />} children={undefined}></Button>
                         <Dialog.Title style={{ paddingTop: 0, marginTop: 0 }}>
                             Selecione a opção:
                         </Dialog.Title>
