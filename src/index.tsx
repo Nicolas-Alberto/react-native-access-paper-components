@@ -20,6 +20,20 @@ export type {
 } from "./Loading/Loading";
 
 export {
+  ModalInfinita
+} from "./ModalInfinita/ModalInfinita";
+
+export {
+  Pagina
+} from "./Pagina/Pagina";
+export type { 
+  PaginaContextType 
+} from "./Pagina/Pagina";
+export { 
+  PaginaContext 
+} from "./Pagina/Pagina";
+
+export {
   TextInputRef
 } from "./TextInputRef/TextInputRef";
 export type { 
