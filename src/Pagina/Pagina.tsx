@@ -62,6 +62,7 @@ export const Pagina: React.FC<PaginaPropsType> = ({ children }) => {
     <PaginaContext.Provider value={{ setModal, setModalAviso, setModalComponente, setLoading, setSnackbarAviso }}>
       <View style={{ flex: 1 }}>
         <Snackbar
+          style={{ zIndex: 100 }}
           visible={snackbarAviso.exibir}
           onDismiss={() => setSnackbarAviso({ exibir: false, mensagem: "" })}
           action={{ label: 'Fechar' }}
