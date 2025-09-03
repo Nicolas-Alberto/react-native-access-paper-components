@@ -24,7 +24,7 @@ export function Loading({ mostra }: LoadingType) {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
-                        <View style={{ borderRadius: 10,backgroundColor: "white", padding: 8, shadowColor: 'black' }}>
+                        <View style={{ borderRadius: 10, padding: 8, shadowColor: 'black' }}>
                             <ActivityIndicator animating={true} style={{ opacity: 1 }} size={'large'}></ActivityIndicator>
                             <Text style={{ marginTop: 10 }}>Carregando...</Text>
                         </View>
